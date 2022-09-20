@@ -1,12 +1,21 @@
-<script lang="ts">
-	import type { PageData } from "./$types";
-
-	export let data: PageData;
+<script>
+	/** @type {import('./$types').PageData} */
+	export let data
 </script>
 
 <section class="prose">
-	<h1>Dashboard</h1>
-	<p>🎉 Hello there <strong>{data.user?.email}</strong>, you're logged in!</p>
+	<div class="hero">
+		<h1>Dashboard</h1>
+		<img
+			src={`http://127.0.0.1:8090/api/files/systemprofiles0/${data.user.profile.id}/${data.user?.profile.avatar}?thumb=100x100`}
+			alt="avatar"
+		/>
+	</div>
+	<p>
+		🎉 Hello there <strong
+			>{data.user?.email.split("@")[0].toUpperCase()}</strong
+		>, you're logged in!
+	</p>
 	<ul>
 		<li><a href="/settings">Settings</a> - Another authenticated route.</li>
 		<li>
@@ -21,6 +30,7 @@
 				</li>
 			</ul>
 		</li>
+		<li><a href="/api/users">/api/users</a></li>
 		<li>
 			<!-- Use data-sveltekit-reload to prevent client-side navigation and force a reload of the page -->
 			<a data-sveltekit-reload href="/logout" class="link">Log Out</a> - Clears the
@@ -28,3 +38,17 @@
 		</li>
 	</ul>
 </section>
+
+<style>
+	.hero {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 4rem;
+	}
+	img {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+	}
+</style>

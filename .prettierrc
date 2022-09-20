@@ -1,4 +1,5 @@
 {
 	"pluginSearchDirs": ["."],
+	"semi": false,
 	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
 }

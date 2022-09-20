@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { session } from "$lib/stores/session";
+	import { session } from "$lib/stores/session"
 </script>
 
 <div class="prose">
@@ -16,9 +16,8 @@
 		>.
 	</p>
 	<p>
-		This demo doesn't use a database and instead just stores user data in a
-		server-side cookie. This is just for demo purposes. In your application
-		you'd want to connect to some backend system instead.
+		This demo is connected to a self hosted pocketbase DB. The auth token is
+		stored in cookies.
 	</p>
 	<p>
 		Try signing up, loggin out, then logging in with that same user credentials
