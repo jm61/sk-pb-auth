@@ -44,4 +44,9 @@ interface AuthAdapter {
 		// TEMPORARY
 		opts?: any;
 	}): Promise<Result<void>>;
+	listUsers(props: {
+		token: string;
+		// TEMPORARY
+		opts?: any;
+	}): Promise<Result<void>>;
 }

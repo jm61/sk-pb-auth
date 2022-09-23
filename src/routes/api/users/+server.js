@@ -12,7 +12,7 @@ export const GET = async (event) => {
 	 */
 	const token = event.cookies.get("auth_token")
 	//console.log(token)
-	const res = await auth.viewUser({ token })
+	const res = await auth.listUsers({ token })
 
 	return json({ users: res })
 }

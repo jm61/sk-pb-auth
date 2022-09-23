@@ -88,7 +88,7 @@ export const pocketbase: AuthAdapter = {
 		return;
 	},
 
-	async viewUser() {
+	async listUsers() {
 		await client.admins.authViaEmail('admin@g.com', '1234512345');
 		const users = await client.users.getList(1,10,);
 		console.log(`This output is from Server: ${users.totalItems} users`);
