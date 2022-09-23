@@ -1,9 +1,8 @@
 import { auth } from "$lib/auth"
-//import type { Handle } from "@sveltejs/kit";
 import debug from "debug"
-
 const log = debug("app:hooks.server")
 
+/** @type {import('@sveltejs/kit').Handle} */
 export const handle = async ({ event, resolve }) => {
 	// Grab the auth_token from the cookies for non-API request:
 	const cookie_token = event.cookies.get("auth_token")
@@ -11,7 +10,7 @@ export const handle = async ({ event, resolve }) => {
 	// Grab the `Authorization: Bearer <token>` header for API requests:
 	const bearer_token = event.request.headers.get("Authorization")?.split(" ")[1]
 	const token = cookie_token ?? bearer_token
-	console.log(bearer_token)
+	//console.log(token)
 
 	log("token:", token)
 

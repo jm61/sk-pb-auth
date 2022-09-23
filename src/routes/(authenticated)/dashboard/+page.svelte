@@ -12,9 +12,7 @@
 		/>
 	</div>
 	<p>
-		🎉 Hello there <strong
-			>{data.user?.email.split("@")[0].toUpperCase()}</strong
-		>, you're logged in!
+		🎉 Hello there <strong>{data.user?.profile.name}</strong>, you're logged in!
 	</p>
 	<ul>
 		<li><a href="/settings">Settings</a> - Another authenticated route.</li>
@@ -30,7 +28,7 @@
 				</li>
 			</ul>
 		</li>
-		<li><a href="/api/users">/api/users</a></li>
+		<li><a href="/api/users" target="_blank">/api/users</a></li>
 		<li>
 			<!-- Use data-sveltekit-reload to prevent client-side navigation and force a reload of the page -->
 			<a data-sveltekit-reload href="/logout" class="link">Log Out</a> - Clears the

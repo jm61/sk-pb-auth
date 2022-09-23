@@ -1,7 +1,7 @@
 /** @type {import('./$types').PageLoad} */
-export const load = (event) => {
-	console.log(event);
-	return {
-		user: "James",
-	};
-};
+export const load = async ({ fetch }) => {
+	const res = await fetch("/api/users")
+	const users = await res.json()
+	//console.log(users)
+	return { users }
+}

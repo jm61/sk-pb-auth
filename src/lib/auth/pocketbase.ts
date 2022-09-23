@@ -1,6 +1,9 @@
 import debug from "debug";
 import { err, ok, ResultAsync } from "neverthrow";
 import type { User as PocketBaseUser } from "pocketbase";
+import PocketBase from 'pocketbase';
+const client = new PocketBase('http://127.0.0.1:8090');
+
 
 const log = debug("app:lib:auth:pocketbase");
 
@@ -84,6 +87,13 @@ export const pocketbase: AuthAdapter = {
 		// since it uses JWTs.
 		return;
 	},
+
+	async viewUser() {
+		await client.admins.authViaEmail('admin@g.com', '1234512345');
+		const users = await client.users.getList(1,10,);
+		console.log(`This output is from Server: ${users.totalItems} users`);
+		return [...users.items];
+	}
 };
 
 async function pocketbase_request<T>({
