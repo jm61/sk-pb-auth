@@ -1,6 +1,5 @@
 import debug from "debug"
 import { err, ok, ResultAsync } from "neverthrow"
-import type { User as PocketBaseUser } from "pocketbase"
 import PocketBase from "pocketbase"
 const client = new PocketBase("http://127.0.0.1:8090")
 
@@ -8,10 +7,10 @@ const log = debug("app:lib:auth:pocketbase")
 
 const POCKETBASE_API_URL = "http://127.0.0.1:8090/api"
 
-export const pocketbase: AuthAdapter = {
+export const pocketbase = {
 	async login({ email, password }) {
 		// TODO: add Zod
-		const resp = await pocketbase_request<LoginResponse>({
+		const resp = await pocketbase_request({
 			path: "/users/auth-via-email",
 			method: "POST",
 			body: { email, password },
@@ -33,7 +32,7 @@ export const pocketbase: AuthAdapter = {
 
 	async signup({ email, password, password_confirm }) {
 		// TODO: add Zod
-		const resp = await pocketbase_request<SignupResponse>({
+		const resp = await pocketbase_request({
 			path: "/users",
 			method: "POST",
 			body: { email, password, passwordConfirm: password_confirm },
@@ -64,7 +63,7 @@ export const pocketbase: AuthAdapter = {
 		log("[validate_session] id:", user_id)
 		// log("[validate_session] token:", session_token);
 
-		const resp = await pocketbase_request<PocketBaseUser>({
+		const resp = await pocketbase_request({
 			path: `/users/${user_id}`,
 			headers: { Authorization: "User " + session_token },
 		})
@@ -95,24 +94,18 @@ export const pocketbase: AuthAdapter = {
 	},
 }
 
-async function pocketbase_request<T>({
+async function pocketbase_request({
 	path,
 	method = "GET",
 	body = null,
 	headers = {},
 	fallback_error_message = "unknown error",
-}: {
-	path: string
-	method?: string
-	body?: any
-	headers?: any
-	fallback_error_message?: string
 }) {
 	const url = POCKETBASE_API_URL + path
 
 	log("url:", url)
 
-	const init: RequestInit = {
+	const init = {
 		method,
 		...(body ? { body: JSON.stringify(body) } : {}),
 		headers: { ...headers, "Content-Type": "application/json" },
@@ -122,22 +115,8 @@ async function pocketbase_request<T>({
 
 	const request = fetch(url, init).then((r) => r.json())
 
-	return ResultAsync.fromPromise<T, Error>(
+	return ResultAsync.fromPromise(
 		request,
 		() => new Error(fallback_error_message)
 	)
 }
-
-interface ErrorResponse {
-	message?: string
-	code?: number
-}
-
-type SignupResponse = PocketBaseUser | ErrorResponse
-
-type LoginResponse =
-	| {
-			token: string
-			user: PocketBaseUser
-	  }
-	| ErrorResponse
