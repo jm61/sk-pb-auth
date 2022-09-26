@@ -16,6 +16,7 @@
 	</p>
 	<ul>
 		<li><a href="/settings">Settings</a> - Another authenticated route.</li>
+		<li><a href="/userslist">Users List</a> - Authenticated route.</li>
 		<li>
 			<a href="/api/me" target="_blank"><code>/api/me</code></a> to get your
 			user data in an authenticated API request.

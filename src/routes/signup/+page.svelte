@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { applyAction, enhance } from "$app/forms";
-	import { faWarning } from "@fortawesome/free-solid-svg-icons";
-	import Fa from "svelte-fa";
-	import type { ActionData } from "./$types";
-	import debug from "debug";
-	import { session } from "$lib/stores/session";
-	import { goto } from "$app/navigation";
+	import { applyAction, enhance } from "$app/forms"
+	import { faWarning } from "@fortawesome/free-solid-svg-icons"
+	import Fa from "svelte-fa"
+	import type { ActionData } from "./$types"
+	import debug from "debug"
+	import { session } from "$lib/stores/session"
+	import { goto } from "$app/navigation"
 
-	const log = debug("app:routes:signup:page.svelte");
+	const log = debug("app:routes:signup:page.svelte")
 
-	export let form: ActionData;
+	export let form: ActionData
 </script>
 
 <section class="max-w-sm mx-auto">
@@ -22,17 +22,17 @@
 		method="POST"
 		use:enhance={() =>
 			async ({ result }) => {
-				log("form result:", result);
+				log("form result:", result)
 
-				await applyAction(result);
+				await applyAction(result)
 
 				// TODO: this is kinda a hack since redirecting in the
 				// action doesn't work because we can't also update page
 				// data.
 				if (result.type === "success") {
-					const user = result.data?.user;
-					if (user) $session.user = user;
-					await goto("/dashboard");
+					const user = result.data?.user
+					if (user) $session.user = user
+					await goto("/dashboard")
 				}
 			}}
 	>

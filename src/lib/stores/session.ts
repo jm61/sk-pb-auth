@@ -1,11 +1,11 @@
-import debug from "debug";
-import { writable } from "svelte/store";
+import debug from "debug"
+import { writable } from "svelte/store"
 
-const log = debug("app:lib:stores:session");
+const log = debug("app:lib:stores:session")
 
 interface Session {
-	user?: User | null;
+	user?: User | null
 }
-export const session = writable<Session>({ user: null });
+export const session = writable<Session>({ user: null })
 
-session.subscribe((session) => log("session:", session));
+session.subscribe((session) => log("session:", session))

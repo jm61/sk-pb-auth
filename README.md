@@ -47,7 +47,7 @@ DEBUG="app:*" npm run dev
 To debug in the browser, open up the `Console` in DevTools and type:
 
 ```js
-localStorage.debug = "app:*";
+localStorage.debug = "app:*"
 ```
 
 ### Using auth adapters

@@ -1,22 +1,22 @@
 <script lang="ts">
-	import "../app.postcss";
-	import type { LayoutData } from "./$types";
-	import { page } from "$app/stores";
-	import Footer from "./Footer.svelte";
-	import Header from "./Header.svelte";
-	import debug from "debug";
-	import { session } from "$lib/stores/session";
+	import "../app.postcss"
+	import type { LayoutData } from "./$types"
+	import { page } from "$app/stores"
+	import Footer from "./Footer.svelte"
+	import Header from "./Header.svelte"
+	import debug from "debug"
+	import { session } from "$lib/stores/session"
 
-	const log = debug("app:routes:layout.svelte");
+	const log = debug("app:routes:layout.svelte")
 
-	export let data: LayoutData;
+	export let data: LayoutData
 
-	$: title = $page.data?.title ? $page.data.title + " | " : "";
+	$: title = $page.data?.title ? $page.data.title + " | " : ""
 
-	$: if (data?.user) $session.user = data.user;
+	$: if (data?.user) $session.user = data.user
 
-	$: log("data:", data);
-	$: log("$page.data:", $page.data);
+	$: log("data:", data)
+	$: log("$page.data:", $page.data)
 </script>
 
 <svelte:head>

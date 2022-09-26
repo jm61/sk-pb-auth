@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { session } from "$lib/stores/session";
+	import { session } from "$lib/stores/session"
 	import {
 		faBars,
 		faChartLine,
@@ -8,9 +8,9 @@
 		faRocket,
 		faSignIn,
 		faSignOut,
-	} from "@fortawesome/free-solid-svg-icons";
-	import Fa from "svelte-fa";
-	import "../app.postcss";
+	} from "@fortawesome/free-solid-svg-icons"
+	import Fa from "svelte-fa"
+	import "../app.postcss"
 
 	$: menu_items = $session?.user
 		? [
@@ -42,7 +42,7 @@
 					icon: faHeart,
 					label: "Sign Up",
 				},
-		  ];
+		  ]
 </script>
 
 <header class="bg-base-200 px-6">

@@ -6,6 +6,6 @@ const config = {
 	},
 
 	plugins: [require("daisyui"), require("@tailwindcss/typography")],
-};
+}
 
-module.exports = config;
+module.exports = config

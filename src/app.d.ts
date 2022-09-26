@@ -3,7 +3,7 @@
 
 declare namespace App {
 	interface Locals {
-		user?: User;
+		user?: User
 	}
 	// interface PageData { }
 	// interface PageError {}
@@ -11,42 +11,42 @@ declare namespace App {
 }
 
 interface User {
-	id?: string;
-	email: string;
-	password?: string;
-	token?: string;
-	[key: string]: any;
+	id?: string
+	email: string
+	password?: string
+	token?: string
+	[key: string]: any
 }
 
-type AuthResponse = Result<User>;
+type AuthResponse = Result<User>
 
 interface AuthAdapter {
 	login(props: {
-		email: string;
-		password: string;
+		email: string
+		password: string
 		// TEMPORARY
-		opts?: any;
-	}): Promise<AuthResponse>;
+		opts?: any
+	}): Promise<AuthResponse>
 	signup(props: {
-		email: string;
-		password: string;
-		password_confirm: string;
+		email: string
+		password: string
+		password_confirm: string
 		// TEMPORARY
-		opts?: any;
-	}): Promise<AuthResponse>;
+		opts?: any
+	}): Promise<AuthResponse>
 	validate_session(props: {
-		token: string;
+		token: string
 		// TEMPORARY
-		opts?: any;
-	}): Promise<AuthResponse>;
+		opts?: any
+	}): Promise<AuthResponse>
 	logout(props: {
-		token: string;
+		token: string
 		// TEMPORARY
-		opts?: any;
-	}): Promise<Result<void>>;
+		opts?: any
+	}): Promise<Result<void>>
 	listUsers(props: {
-		token: string;
+		token: string
 		// TEMPORARY
-		opts?: any;
-	}): Promise<Result<void>>;
+		opts?: any
+	}): Promise<Result<void>>
 }

@@ -1,7 +1,7 @@
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data
-	console.log(data)
+	//console.log(data)
 </script>
 
 <h2 class="text-xl mb-4">{data.user.profile.name}</h2>
