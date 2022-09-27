@@ -1,0 +1,3 @@
+get http://127.0.0.1:8090/api/users
+Authorization: Admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjUzOTI4MDIsImlkIjoiemJjcnVyMDR6cG96cWw2IiwidHlwZSI6ImFkbWluIn0.CACINfgDndVI9bBT0TIEQiUTOpviRyy_gjqap0KBbmo
+###

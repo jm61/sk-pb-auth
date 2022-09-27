@@ -35,6 +35,7 @@ export const actions = {
 			event.cookies.set("auth_token", `${user.id}:${user.token}`, {
 				path: "/",
 				maxAge: AUTH_TOKEN_EXPIRY_SECONDS,
+				sameSite: "strict",
 			})
 		}
 

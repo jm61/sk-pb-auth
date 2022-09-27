@@ -1,3 +1,8 @@
+<script>
+	/** @type {import('./$types').PageData} */
+	export let data
+</script>
+
 <section class="prose">
 	<h1>Settings</h1>
 	<p>
@@ -7,3 +12,5 @@
 		</label>
 	</p>
 </section>
+
+<pre>{JSON.stringify(data.settings, null, 2)}</pre>
