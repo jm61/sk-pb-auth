@@ -1,6 +1,5 @@
-<script lang="ts">
+<script>
 	import "../app.postcss"
-	import type { LayoutData } from "./$types"
 	import { page } from "$app/stores"
 	import Footer from "./Footer.svelte"
 	import Header from "./Header.svelte"
@@ -9,7 +8,8 @@
 
 	const log = debug("app:routes:layout.svelte")
 
-	export let data: LayoutData
+	/** @type {import('./$types').LayoutData} */
+	export let data
 
 	$: title = $page.data?.title ? $page.data.title + " | " : ""
 
@@ -25,7 +25,7 @@
 
 <Header />
 
-<main class="max-w-screen-sm mx-auto my-20 px-6">
+<main class="max-w-screen-lg mx-auto my-20 px-6">
 	<slot />
 </main>
 

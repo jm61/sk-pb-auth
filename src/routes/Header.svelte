@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { session } from "$lib/stores/session"
 	import {
 		faBars,
@@ -8,6 +8,7 @@
 		faRocket,
 		faSignIn,
 		faSignOut,
+		faCartShopping,
 	} from "@fortawesome/free-solid-svg-icons"
 	import Fa from "svelte-fa"
 	import "../app.postcss"
@@ -55,6 +56,7 @@
 		</h1>
 
 		<nav class="dropdown dropdown-end ml-auto">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn btn-ghost gap-3">
 				<Fa icon={faBars} />
 				Menu
@@ -63,6 +65,7 @@
 				tabindex="0"
 				class="dropdown-content menu p-2 shadow-md bg-base-200 rounded-box w-52 "
 			>
+				<li><a href="/products"><Fa icon={faCartShopping} />Shopping</a></li>
 				{#each menu_items as item}
 					<li>
 						<a

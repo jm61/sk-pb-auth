@@ -18,11 +18,7 @@
 		<li><a href="/settings">Settings</a> - Another authenticated route.</li>
 		<li><a href="/userslist">Users List</a> - Authenticated route.</li>
 		<li>
-<<<<<<< HEAD
-			<a href="/collectionslist">Collections List</a> - Authenticated route.
-=======
 			<a href="/collectionsList">Collections List</a> - Authenticated route.
->>>>>>> move2auth
 		</li>
 		<li>
 			<a href="/api/me" target="_blank"><code>/api/me</code></a> to get your

@@ -10,7 +10,6 @@ export const handle = async ({ event, resolve }) => {
 	// Grab the `Authorization: Bearer <token>` header for API requests:
 	const bearer_token = event.request.headers.get("Authorization")?.split(" ")[1]
 	const token = cookie_token ?? bearer_token
-	//console.log(token)
 
 	log("token:", token)
 

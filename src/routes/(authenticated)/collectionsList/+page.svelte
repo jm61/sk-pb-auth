@@ -3,7 +3,7 @@
 	export let data
 </script>
 
-<pre>{JSON.stringify(data.items, null, 2)}</pre>
+<!-- <pre>{JSON.stringify(data.items, null, 2)}</pre> -->
 
 <h2 class="text-xl mb-4">{data.user.profile.name}</h2>
 

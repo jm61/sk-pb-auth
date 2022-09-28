@@ -1,5 +1,6 @@
-<script lang="ts">
+<script>
 	import { session } from "$lib/stores/session"
+	import { USERS } from "$lib/faker"
 </script>
 
 <div class="prose">
@@ -33,3 +34,7 @@
 		{/if}
 	</p>
 </div>
+
+{#each USERS as image}
+	<img src={image.image} alt="pic" />
+{/each}
